@@ -15,6 +15,15 @@ class ProductDetailsScreen extends StatelessWidget {
     ProductDetailsControllerImpl controller =
         Get.put(ProductDetailsControllerImpl());
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Product Details"),
+          centerTitle: true,
+          backgroundColor: AppColors.whiteTextColor,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () => Get.back(),
+          ),
+        ),
         bottomNavigationBar: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             height: 40,

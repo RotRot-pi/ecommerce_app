@@ -1,4 +1,3 @@
-
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/services/services.dart';
@@ -14,28 +13,24 @@ abstract class AddAddAddressController extends GetxController {
   addAddress();
 }
 
-
 class AddAddressControllerImpl extends AddAddAddressController {
   late MapController mapController;
   final AppServices _appServices = Get.find();
-  late Position      position =  _appServices.position;
+  late Position position = _appServices.position;
   RequestStatus requestStatus = RequestStatus.notInitialized;
   List<Marker> markers = [];
   double lat = 0;
   double lng = 0;
   @override
-  void onInit()  {
+  void onInit() {
     getMapData();
     mapController = MapController();
 
     super.onInit();
   }
 
-
-
   @override
   getMapData() async {
-
     requestStatus = RequestStatus.loading;
 
     requestStatus = RequestStatus.success;
@@ -46,9 +41,7 @@ class AddAddressControllerImpl extends AddAddAddressController {
   setMarker(LatLng latLng) {
     markers.clear();
     markers.add(
-
       Marker(
-
         point: latLng,
         child: const Icon(Icons.location_on),
       ),
@@ -62,7 +55,7 @@ class AddAddressControllerImpl extends AddAddAddressController {
   @override
   addAddress() {
     print('lat $lat lng $lng');
-    Get.toNamed(AppRoutes.addAddressDetails,arguments: {'lat':lat,'lng':lng});
+    Get.offNamed(AppRoutes.addAddressDetails,
+        arguments: {'lat': lat, 'lng': lng});
   }
-
 }

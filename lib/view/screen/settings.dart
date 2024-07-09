@@ -50,7 +50,11 @@ class SettingsScreen extends StatelessWidget {
                   children: [
                     ListTile(
                       // onTap: () {},
-                      trailing: Switch(onChanged: (val) {}, value: true),
+                      trailing: Switch(
+                          onChanged: (val) {
+                            controller.enableNotification(val);
+                          },
+                          value: controller.isNotificationEnabled),
                       title: const Text("Disable Notificatios"),
                     ),
                     ListTile(

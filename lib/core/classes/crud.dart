@@ -61,10 +61,14 @@ class Crud {
         print("response.statusCode:${response.statusCode}");
         try {
           print("response.body:${response.body}");
-          var responseBody = jsonDecode(response.body);
+          //NOTE: I got a format error because the body was empty
+          //      So I used the conditional statement inside jsonDecode
+          var responseBody =
+              jsonDecode(response.body.isNotEmpty ? response.body : "{}");
           print("CRUD:$responseBody");
           return Right(responseBody);
-        } on FormatException {
+        } on FormatException catch (e) {
+          print("response.message:${e.message}");
           return const Left(RequestStatus.formatError);
         }
       } else {

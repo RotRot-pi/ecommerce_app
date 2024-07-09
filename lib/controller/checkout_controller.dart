@@ -17,7 +17,7 @@ class CheckoutController extends GetxController {
   RequestStatus statusRequest = RequestStatus.notInitialized;
 
   int? couponId;
-  int? couponDiscount=0;
+  int? couponDiscount = 0;
   dynamic ordersPrice;
   int? paymentMethod;
   int? deliveryType;
@@ -48,19 +48,18 @@ class CheckoutController extends GetxController {
 
     print("=============================== Controller $response ");
 
-    statusRequest = handelingData(response);
-
-    if (RequestStatus.success == statusRequest) {
-      // Start backend
-      if (response['status'] == "success") {
-        List listdata = response['data'];
-        dataaddress.addAll(listdata.map((e) => Address.fromJson(e)));
-      } else {
-        statusRequest = RequestStatus.failure;
-      }
-      // End
+    // Start backend
+    if (response['status'] == "success") {
+      List listdata = response['data'];
+      dataaddress.addAll(listdata.map((e) => Address.fromJson(e)));
     }
+    statusRequest = RequestStatus.success;
     update();
+    // End
+  }
+
+  goToAddress() {
+    Get.toNamed(AppRoutes.addAddress);
   }
 
   checkout() async {
@@ -70,20 +69,26 @@ class CheckoutController extends GetxController {
         "Please choose payment method",
       );
     }
-    if(deliveryType == null){
+    if (deliveryType == null) {
       return Get.snackbar(
         "Error",
         "Please choose delivery type",
       );
     }
-    if (deliveryType==0 && addressid == null) {
+    if (deliveryType == 0 && addressid == null) {
       return Get.snackbar(
         "Error",
         "Please choose shipping address",
       );
     }
-    addressid ==null?addressid=0:addressid=addressid;
-    couponId ==null?couponId=0:couponId=couponId;
+    if (dataaddress.isEmpty) {
+      return Get.snackbar(
+        "Error",
+        "Please add shipping address",
+      );
+    }
+    addressid == null ? addressid = 0 : addressid = addressid;
+    couponId == null ? couponId = 0 : couponId = couponId;
     print("=============================== Controller checkout ");
     var map = {
       "user_id": myServices.sharedPreferences.getInt("id")!.toString(),
@@ -98,15 +103,14 @@ class CheckoutController extends GetxController {
     print("Map:$map");
     var response = await checkoutData.checkout(map);
     statusRequest = handelingData(response);
+    print("StatusRequest:$statusRequest");
     if (RequestStatus.success == statusRequest) {
       // Start backend
 
-
-        Get.offAllNamed(AppRoutes.home);
-
+      Get.offAllNamed(AppRoutes.home);
 
       // End
-    }else{
+    } else {
       Get.snackbar(
         "Error",
         "Something went wrong",
@@ -122,8 +126,7 @@ class CheckoutController extends GetxController {
     ordersPrice = Get.arguments['ordersPrice'];
     couponDiscount = Get.arguments['couponDiscount'];
 
-print('Discount: $couponDiscount');
-
+    print('Discount: $couponDiscount');
 
     super.onInit();
   }

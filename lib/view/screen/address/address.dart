@@ -12,8 +12,15 @@ class AddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(AddressControllerImpl());
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Address"),),
+        appBar: AppBar(
+          title: const Text("Address"),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+              onPressed: () => Get.back(), icon: const Icon(Icons.arrow_back)),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => controller.goToAddAddress(),
           shape: const CircleBorder(),
@@ -28,7 +35,8 @@ class AddressScreen extends StatelessWidget {
                       itemCount: controller.addressList.length,
                       itemBuilder: (context, index) {
                         Address address = controller.addressList[index];
-                        return AddressCard(address: address,controller:controller);
+                        return AddressCard(
+                            address: address, controller: controller);
                         // return ListTile(
                         //     title: Text(address.addressName!),
                         //     subtitle:
@@ -46,7 +54,8 @@ class AddressScreen extends StatelessWidget {
 class AddressCard extends StatelessWidget {
   final Address address;
   final AddressControllerImpl controller;
-  const AddressCard({super.key, required this.address, required this.controller});
+  const AddressCard(
+      {super.key, required this.address, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -108,4 +117,3 @@ class AddressCard extends StatelessWidget {
     );
   }
 }
-

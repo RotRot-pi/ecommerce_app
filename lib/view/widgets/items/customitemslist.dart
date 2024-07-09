@@ -46,6 +46,20 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                               fontSize: s16,
                               fontWeight: FontWeight.bold)),
 
+                      AppSpacing.addHeigh(h10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("${controller.deliveryTime}",
+                              style: const TextStyle(fontSize: s16),
+                              textAlign: TextAlign.center),
+                          AppSpacing.addWidth(w10),
+                          const Icon(
+                            Icons.timer_sharp,
+                            size: 18,
+                          ),
+                        ],
+                      ),
                       //Rating stars
                       //
                       // Row(

@@ -41,19 +41,17 @@ class HomePage extends StatelessWidget {
                             children: [
                               if (controller.homeCartSettings.isNotEmpty)
                                 CustomCardHome(
-                                    title:
-                                        "${controller.homeCartSettings[0]['home_cart_settings_title']}",
-                                    body:
-                                        "${controller.homeCartSettings[0]['home_cart_settings_body']}",
+                                    title: "${controller.titleHomeCard}",
+                                    body: "${controller.descriptionHomeCard}",
                                     language: controller.language),
-                              // const ListCategoriesHome(),
-                              // const SizedBox(height: 10),
-                              // CustomTitleHome(title: "product_for_you".tr),
-                              // const SizedBox(height: 10),
-                              // const ListItemsHome(),
-                              // CustomTitleHome(title: "offer".tr),
-                              // const SizedBox(height: 10),
-                              // const ListItemsHome()
+                              const ListCategoriesHome(),
+                              const SizedBox(height: 10),
+                              CustomTitleHome(title: "product_for_you".tr),
+                              const SizedBox(height: 10),
+                              const ListItemsHome(),
+                              CustomTitleHome(title: "offer".tr),
+                              const SizedBox(height: 10),
+                              const ListItemsHome()
                             ],
                           ));
                     })

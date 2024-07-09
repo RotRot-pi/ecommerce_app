@@ -23,6 +23,9 @@ class HomeControllerImpl extends HomeController {
   late String username;
   late int id;
   late String language;
+  String titleHomeCard = "";
+  String descriptionHomeCard = "";
+  String deliveryTime = "";
 
   List<Category> categories = [];
   List<Item> items = [];
@@ -39,15 +42,22 @@ class HomeControllerImpl extends HomeController {
         response['status'] == 'success') {
       print("response:$response ");
 
-      response['categories'].forEach((element) {
+      for (var element in response['categories']) {
         categories.add(Category.fromMap(element));
-      });
-      response['itemsTopSellingView'].forEach((element) {
+      }
+
+      for (var element in response['itemsTopSellingView']) {
         items.add(Item.fromMap(element));
-      });
-      response['home_cart_settings'].forEach((element) {
-        homeCartSettings.add(Item.fromMap(element));
-      });
+      }
+
+      for (var element in response['home_cart_settings']) {
+        homeCartSettings.add(element as Map);
+      }
+      titleHomeCard = homeCartSettings[0]['home_cart_settings_title'];
+      descriptionHomeCard = homeCartSettings[0]['home_cart_settings_body'];
+      deliveryTime = homeCartSettings[0]['delivery_time'].toString();
+      //deliveryTime: You can add it to shared preferences or wherever you want to save it
+      _appServices.sharedPreferences.setString("deliveryTime", deliveryTime);
       print("homeCartSettings:${homeCartSettings}");
       print("categories:${categories}");
       print("items:${items}");
@@ -74,6 +84,11 @@ class HomeControllerImpl extends HomeController {
       'categoryIndex': categoryIndex,
       'categoryId': categoryId
     });
+  }
+
+  @override
+  goToProductDetails(Item item) {
+    Get.toNamed(AppRoutes.productDetails, arguments: {'item': item});
   }
 
   @override

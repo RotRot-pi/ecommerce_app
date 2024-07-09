@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
+import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/items.dart';
@@ -19,6 +20,14 @@ class ItemsScreen extends StatelessWidget {
     var controller = Get.put(ItemsControllerImpl());
     var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
+        appBar: AppBar(
+          title: const Text("Products"),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () => Get.offNamed(AppRoutes.home),
+            icon: const Icon(Icons.arrow_back),
+          ),
+        ),
         body: Padding(
             padding: AppSpacing.addEdgeInsetsAll(p16),
             child: ListView(

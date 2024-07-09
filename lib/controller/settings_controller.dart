@@ -11,6 +11,15 @@ abstract class SettingsController extends GetxController {
 
 class SettingsControllerImpl extends SettingsController {
   final AppServices _appServices = Get.find();
+  bool isNotificationEnabled = false;
+
+  enableNotification(bool val) {
+    //unsubscribe to notifications
+    //or
+    //subscribe to notifications
+    isNotificationEnabled = val;
+    update();
+  }
 
   @override
   logout() {

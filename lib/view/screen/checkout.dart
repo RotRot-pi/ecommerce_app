@@ -24,7 +24,7 @@ class CheckoutScreen extends StatelessWidget {
           child: MaterialButton(
             color: AppColors.secondaryColor,
             textColor: Colors.white,
-            onPressed: () =>controller.checkout(),
+            onPressed: () => controller.checkout(),
             child: const Text("Checkout",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
           )),
@@ -50,9 +50,8 @@ class CheckoutScreen extends StatelessWidget {
                         },
                         child: CardPaymentMethodCheckout(
                             title: "Cash On Delivery",
-                            isActive: controller.paymentMethod == 0
-                                ? true
-                                : false),
+                            isActive:
+                                controller.paymentMethod == 0 ? true : false),
                       ),
                       const SizedBox(height: 10),
                       InkWell(
@@ -62,9 +61,8 @@ class CheckoutScreen extends StatelessWidget {
                         },
                         child: CardPaymentMethodCheckout(
                             title: "Payment Cards",
-                            isActive: controller.paymentMethod == 1
-                                ? true
-                                : false),
+                            isActive:
+                                controller.paymentMethod == 1 ? true : false),
                       ),
                       const SizedBox(height: 20),
                       const Text(
@@ -117,6 +115,29 @@ class CheckoutScreen extends StatelessWidget {
                                   fontSize: 16),
                             ),
                             const SizedBox(height: 10),
+                            if (controller.dataaddress.isEmpty)
+                              SizedBox(
+                                width: double.infinity,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      "No Shipping Address",
+                                      style: TextStyle(
+                                          color: AppColors.greyTextColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        controller.goToAddress();
+                                      },
+                                      child: const Text("Add Shipping Address"),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ...List.generate(
                               controller.dataaddress.length,
                               (index) => InkWell(

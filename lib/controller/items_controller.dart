@@ -19,10 +19,13 @@ class ItemsControllerImpl extends ItemsController {
   final AppServices _appServices = Get.find();
   ItemData itemData = ItemData(crud: Get.find());
   RequestStatus requestStatus = RequestStatus.notInitialized;
+
   List categories = [];
   List items = [];
+
   int? categoryIndex;
   var categoryId;
+  String? deliveryTime = "";
 
   @override
   getItems(var newCategoryId) async {
@@ -62,7 +65,7 @@ class ItemsControllerImpl extends ItemsController {
     categories = Get.arguments['categories'];
     categoryIndex = Get.arguments['categoryIndex'];
     categoryId = Get.arguments['categoryId'];
-
+    deliveryTime = _appServices.sharedPreferences.getString("deliveryTime");
     print("cat:$categories \ncategoryIndex:$categoryIndex");
   }
 

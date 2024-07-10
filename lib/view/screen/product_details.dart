@@ -1,6 +1,5 @@
 import 'package:ecommercecourse/controller/product_details_controller.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:ecommercecourse/view/widgets/product_details/priceandcount.dart';
 import 'package:ecommercecourse/view/widgets/product_details/toppageproductdetails.dart';
@@ -53,12 +52,12 @@ class ProductDetailsScreen extends StatelessWidget {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${controller.item.itemsName}",
+                          Text(controller.item.itemsName,
                               style: Theme.of(context)
                                   .textTheme
                                   .displayLarge!
                                   .copyWith(
-                                    color: AppColors.fourthColor,
+                                    color: AppColors.fifthColor,
                                   )),
                           const SizedBox(height: 10),
                           PriceAndCountItems(
@@ -68,10 +67,11 @@ class ProductDetailsScreen extends StatelessWidget {
                               onRemove: () {
                                 controller.remove();
                               },
-                              price: "${controller.item.itemsPrice}",
+                              price:
+                                  "${controller.item.itemsPriceAfterDiscount}",
                               count: "${controller.countitems}"),
                           const SizedBox(height: 10),
-                          Text("${controller.item.itemsDescription}",
+                          Text(controller.item.itemsDescription,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!

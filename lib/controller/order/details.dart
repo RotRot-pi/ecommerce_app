@@ -1,15 +1,15 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/core/services/services.dart';
 import 'package:ecommercecourse/data/datasource/remote/order/details.dart';
 import 'package:ecommercecourse/data/model/cart.dart';
+import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:latlong2/latlong.dart';
-
-import '../../data/model/order.dart';
 
 class OrdersDetailsController extends GetxController {
   final AppServices _appServices = Get.find();
@@ -17,7 +17,7 @@ class OrdersDetailsController extends GetxController {
   late MapController mapController;
   late MapCamera mapCamera;
   late Position position;
-  late Order order;
+  late OrderDetails orderDetails;
   double zoom = 10;
 
   List<Marker> markers = [];
@@ -29,8 +29,9 @@ class OrdersDetailsController extends GetxController {
   getData() async {
     requestStatus = RequestStatus.loading;
     print("status1:$requestStatus");
-    print("ORDER ID:${order.orderId}");
-    var response = await orderDetailsData.getData(order.orderId.toString());
+    print("ORDER ID:${orderDetails.orderId}");
+    var response =
+        await orderDetailsData.getData(orderDetails.orderId.toString());
     requestStatus = handelingData(response);
     print("status2:$requestStatus");
     if (requestStatus == RequestStatus.success &&
@@ -49,7 +50,7 @@ class OrdersDetailsController extends GetxController {
   }
 
   setMarker(LatLng latLng) {
-    if (order.orderType == 0) {
+    if (orderDetails.orderType == 0) {
       markers.clear();
       markers.add(
         Marker(
@@ -58,8 +59,8 @@ class OrdersDetailsController extends GetxController {
         ),
       );
 
-      lat = order.addressLat ?? latLng.latitude;
-      lng = order.addressLong ?? latLng.longitude;
+      lat = orderDetails.addressLat ?? latLng.latitude;
+      lng = orderDetails.addressLong ?? latLng.longitude;
     }
     update();
   }
@@ -82,9 +83,13 @@ class OrdersDetailsController extends GetxController {
     update();
   }
 
+  goToOrderTracking(OrderDetails order) {
+    Get.toNamed(AppRoutes.orderTracking, arguments: {"order": order});
+  }
+
   @override
   void onInit() {
-    order = Get.arguments['order'];
+    orderDetails = Get.arguments['order'];
     mapController = MapController();
     position = _appServices.position;
     getData();

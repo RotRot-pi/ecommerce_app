@@ -1,10 +1,11 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/order/pending.dart';
+import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:get/get.dart';
 
 import '../../core/services/services.dart';
-import '../../data/model/order.dart';
 
 class PendingOrderController extends GetxController {
   PendingOrderData pendingOrderData = PendingOrderData(crud: Get.find());
@@ -24,7 +25,7 @@ class PendingOrderController extends GetxController {
       print("response:$response ");
 
       for (var i = 0; i < response['data'].length; i++) {
-        data.add(Order.fromJson(response['data'][i]));
+        data.add(OrderDetails.fromJson(response['data'][i]));
       }
     } else {
       requestStatus;
@@ -50,6 +51,10 @@ class PendingOrderController extends GetxController {
     }
 
     print("status2:$requestStatus");
+  }
+
+  goToOrderTracking(OrderDetails order) {
+    Get.toNamed(AppRoutes.orderTracking, arguments: {"order": order});
   }
 
   printOrderType(var orderType) {

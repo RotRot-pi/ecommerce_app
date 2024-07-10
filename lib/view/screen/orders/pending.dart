@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:ecommercecourse/view/widgets/order/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class PendingOrdersScreen extends StatelessWidget {
                 child: ListView.builder(
                     itemCount: controller.data.length,
                     itemBuilder: (context, index) {
-                      Order order = controller.data[index];
+                      OrderDetails order = controller.data[index];
                       return OrderCard(order: order, controller: controller);
                     }))));
   }

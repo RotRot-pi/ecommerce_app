@@ -1,13 +1,13 @@
 import 'package:ecommercecourse/core/classes/request_status.dart';
 import 'package:ecommercecourse/core/functions/handing_data.dart';
 import 'package:ecommercecourse/data/datasource/remote/order/archive.dart';
+import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:ecommercecourse/view/widgets/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 
 import '../../core/services/services.dart';
-import '../../data/model/order.dart';
 
 class ArchivingOrderController extends GetxController {
   ArchiveOrderData archiveOrderData = ArchiveOrderData(crud: Get.find());
@@ -27,7 +27,7 @@ class ArchivingOrderController extends GetxController {
       print("response:$response ");
 
       for (var i = 0; i < response['data'].length; i++) {
-        data.add(Order.fromJson(response['data'][i]));
+        data.add(OrderDetails.fromJson(response['data'][i]));
       }
     } else {
       requestStatus;

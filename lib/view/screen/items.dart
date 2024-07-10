@@ -1,9 +1,7 @@
 import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
-import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/data/model/items.dart';
 import 'package:ecommercecourse/view/screen/home_page.dart';
 import 'package:ecommercecourse/view/widgets/customappbar.dart';
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';

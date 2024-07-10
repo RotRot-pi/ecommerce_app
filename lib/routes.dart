@@ -1,3 +1,4 @@
+import 'package:ecommercecourse/controller/order/tracking.dart';
 import 'package:ecommercecourse/core/middleware/app_middle_ware.dart';
 import 'package:ecommercecourse/view/screen/address/add_address.dart';
 import 'package:ecommercecourse/view/screen/address/add_address_details.dart';
@@ -112,6 +113,8 @@ List<GetPage> getPages = [
       name: AppRoutes.archiveOrders, page: () => const ArchiveOrdersScreen()),
   GetPage(
       name: AppRoutes.ordersDetails, page: () => const OrdersDetailsScreen()),
+  GetPage(
+      name: AppRoutes.orderTracking, page: () => const OrderTrackingScreen()),
   // ========================= Notification ========================= //
   GetPage(name: AppRoutes.notification, page: () => const NotificationScreen()),
 

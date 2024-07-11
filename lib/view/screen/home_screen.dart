@@ -39,7 +39,6 @@ class HomeScreen extends StatelessWidget {
             }
             final bool shouldPop =
                 await controller.showBackDialog(context) ?? false;
-            print("Should pop:$shouldPop");
             if (shouldPop) {
               exit(0);
             }

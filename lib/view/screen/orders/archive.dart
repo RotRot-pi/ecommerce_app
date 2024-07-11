@@ -15,7 +15,7 @@ class ArchiveOrdersScreen extends StatelessWidget {
     Get.put(ArchivingOrderController());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Archive"),
+          title: Text("archive".tr),
         ),
         body: GetBuilder<ArchivingOrderController>(
             builder: (controller) => HandelingDataView(

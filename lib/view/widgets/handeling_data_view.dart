@@ -2,6 +2,7 @@ import 'package:ecommercecourse/core/constants/image_assets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommercecourse/core/classes/request_status.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class HandelingDataView extends StatelessWidget {
@@ -32,9 +33,8 @@ class HandelingDataView extends StatelessWidget {
             child: Lottie.asset(AppImageAssets.offline,
                 width: 250, repeat: false));
       case RequestStatus.unknownError:
-        return const Center(child: Text('Unknown Error'));
+        return Center(child: Text("unknown_error".tr));
       case RequestStatus.serverError:
-        print("we are here");
         return Center(
             child: Lottie.asset(
           AppImageAssets.server,
@@ -42,7 +42,7 @@ class HandelingDataView extends StatelessWidget {
           repeat: false,
         ));
       case RequestStatus.formatError:
-        return const Center(child: Text('Format Error'));
+        return Center(child: Text('format_error'.tr));
       case RequestStatus.failure:
         return Center(
             child:

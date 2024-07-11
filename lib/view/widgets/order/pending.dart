@@ -1,12 +1,10 @@
 import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
-import 'package:ecommercecourse/data/model/order.dart';
 import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:rating_dialog/rating_dialog.dart';
 
 class OrderCard extends StatelessWidget {
   const OrderCard({
@@ -46,7 +44,7 @@ class OrderCard extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "Order Number: ${order.orderId}",
+                  "${"order_number".tr}: ${order.orderId}",
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
@@ -62,13 +60,14 @@ class OrderCard extends StatelessWidget {
             const Divider(
               color: Colors.black,
             ),
-            Text("Order Date: ${order.orderDateTime}"),
-            Text("Order Type: ${controller.printOrderType(order.orderType)}"),
+            Text("${"order_date".tr}: ${order.orderDateTime}"),
             Text(
-                "Order Status: ${controller.printOrderStatus(order.orderStatus)}"),
+                "${"order_type".tr}: ${controller.printOrderType(order.orderType)}"),
             Text(
-                "Payment Method: ${controller.printPaymentMethod(order.orderPaymentType)}"),
-            Text("Order Address: ${order.orderAddressId}"),
+                "${"order_status".tr}: ${controller.printOrderStatus(order.orderStatus)}"),
+            Text(
+                "${"payment_method".tr}: ${controller.printPaymentMethod(order.orderPaymentType)}"),
+            Text("${"order_address".tr}: ${order.orderAddressId}"),
             const Divider(
               color: Colors.black,
             ),
@@ -76,7 +75,7 @@ class OrderCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Total: ${order.orderTotalPrice}",
+                  "${"total".tr}: ${order.orderTotalPrice}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     color: AppColors.primaryColor,
@@ -94,8 +93,8 @@ class OrderCard extends StatelessWidget {
                         },
                         color: AppColors.whiteTextColor.withAlpha(150),
                         textColor: AppColors.black,
-                        child: const Text(
-                          "Details",
+                        child: Text(
+                          "details".tr,
                         ),
                       ),
                     AppSpacing.addWidth(w4),
@@ -106,8 +105,8 @@ class OrderCard extends StatelessWidget {
                         },
                         color: AppColors.whiteTextColor.withAlpha(150),
                         textColor: AppColors.black,
-                        child: const Text(
-                          "Tracking",
+                        child: Text(
+                          "tracking".tr,
                         ),
                       ),
                     AppSpacing.addWidth(w4),
@@ -118,8 +117,8 @@ class OrderCard extends StatelessWidget {
                         },
                         color: AppColors.whiteTextColor.withAlpha(150),
                         textColor: AppColors.black,
-                        child: const Text(
-                          "Rating",
+                        child: Text(
+                          "rating".tr,
                         ),
                       ),
                     AppSpacing.addWidth(w4),
@@ -129,8 +128,8 @@ class OrderCard extends StatelessWidget {
                       },
                       color: AppColors.whiteTextColor.withAlpha(150),
                       textColor: AppColors.black,
-                      child: const Text(
-                        "Delete",
+                      child: Text(
+                        "delete".tr,
                       ),
                     )
                   ],

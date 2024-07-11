@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommercecourse/controller/home_controller.dart';
+import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/routes_name.dart';
 
@@ -14,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,8 @@ class HomePage extends StatelessWidget {
                             children: [
                               if (controller.homeCartSettings.isNotEmpty)
                                 CustomCardHome(
-                                    title: "${controller.titleHomeCard}",
-                                    body: "${controller.descriptionHomeCard}",
+                                    title: controller.titleHomeCard,
+                                    body: controller.descriptionHomeCard,
                                     language: controller.language),
                               const ListCategoriesHome(),
                               const SizedBox(height: 10),

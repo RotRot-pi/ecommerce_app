@@ -4,6 +4,7 @@ import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/controller/offers_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/image_assets.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/core/functions/translate_data.dart';
 
@@ -100,7 +101,7 @@ class CustomListOffers extends GetView<OffersController> {
                     child: ColorFiltered(
                   colorFilter: ColorFilter.matrix(colorFilterMatrix),
                   child: Image.asset(
-                    'assets/images/sales.png',
+                    AppImageAssets.sales,
                     height: h64,
                     width: w64,
                     fit: BoxFit.fill,

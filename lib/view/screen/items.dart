@@ -19,7 +19,7 @@ class ItemsScreen extends StatelessWidget {
     var favoriteController = Get.put(FavoriteItemsControllerImpl());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Products"),
+          title: Text("products".tr),
           centerTitle: true,
           leading: IconButton(
             onPressed: () => Get.offNamed(AppRoutes.home),

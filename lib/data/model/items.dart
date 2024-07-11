@@ -121,7 +121,7 @@ class Item {
       itemsCategoryName: map['category_name'] as String?,
       itemsCategoryNameAr: map['category_name_ar'] as String?,
       itemsPriceAfterDiscount:
-          (map['items_price_after_discount'] ?? 0).toDouble() as double?,
+          map['items_price_after_discount'].toDouble() as double?,
     );
   }
 

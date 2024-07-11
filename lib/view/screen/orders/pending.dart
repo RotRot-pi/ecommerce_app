@@ -15,7 +15,7 @@ class PendingOrdersScreen extends StatelessWidget {
     Get.put(PendingOrderController());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Pending"),
+          title: Text("pending".tr),
         ),
         body: GetBuilder<PendingOrderController>(
             builder: (controller) => HandelingDataView(

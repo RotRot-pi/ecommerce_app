@@ -17,7 +17,7 @@ class CartScreen extends StatelessWidget {
     Get.put(CartController());
     return Scaffold(
         appBar: AppBar(
-          title: Text("My Cart"),
+          title: Text("my_cart".tr),
         ),
         resizeToAvoidBottomInset: false,
         bottomNavigationBar: GetBuilder<CartController>(
@@ -40,7 +40,7 @@ class CartScreen extends StatelessWidget {
                     SizedBox(height: 10),
                     TopCardCart(
                         message:
-                            "You Have ${controller.totalcountitems} Items in Your List"),
+                            "${"you_have".tr} ${controller.totalcountitems} ${"items_in_your_list".tr}"),
                     Container(
                       padding: EdgeInsets.all(10),
                       child: Column(

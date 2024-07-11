@@ -74,7 +74,7 @@ class _VerifySignUpCodePage extends StatelessWidget {
           child: InkWell(
             onTap: () => controller.resendVerifyCode(),
             child: Text(
-              "Resend Code".tr,
+              "resend_code".tr,
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium

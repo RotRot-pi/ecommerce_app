@@ -1,5 +1,6 @@
 import 'package:ecommercecourse/controller/settings_controller.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/image_assets.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,7 +33,7 @@ class SettingsScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                       color: AppColors.whiteTextColor, shape: BoxShape.circle),
                   child: const CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/avatar.png'),
+                    backgroundImage: AssetImage(AppImageAssets.avatar),
                   ),
                 ),
               ),

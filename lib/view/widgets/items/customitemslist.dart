@@ -3,6 +3,7 @@ import 'package:ecommercecourse/controller/favorite_items_controller.dart';
 import 'package:ecommercecourse/controller/items_controller.dart';
 import 'package:ecommercecourse/core/constants/api_link.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
+import 'package:ecommercecourse/core/constants/image_assets.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/core/functions/translate_data.dart';
 
@@ -116,7 +117,7 @@ class CustomListItems extends GetView<ItemsControllerImpl> {
                     child: ColorFiltered(
                   colorFilter: ColorFilter.matrix(colorFilterMatrix),
                   child: Image.asset(
-                    'assets/images/sales.png',
+                    AppImageAssets.sales,
                     height: h64,
                     width: w64,
                     fit: BoxFit.fill,

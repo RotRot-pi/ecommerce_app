@@ -70,7 +70,6 @@ class CheckEmailPage extends StatelessWidget {
         CustomButtomAuth(
             text: "check".tr,
             onPressed: () {
-              print("email :${controller.emailController.text}");
               controller.checkEmail();
             }),
         AppSpacing.addHeigh(h32),

@@ -6,10 +6,11 @@ import 'package:ecommercecourse/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await ScreenUtil.ensureScreenSize();
+  await ScreenUtil.ensureScreenSize();
   // var s = await SharedPreferences.getInstance();
   // s.clear();
   await initializeServices();
@@ -35,14 +36,19 @@ class MyApp extends StatelessWidget {
 
       // minTextAdapt: true,
       builder: (context, widget) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          translations: AppTranslation(),
-          locale: localizationController.language,
-          theme: localizationController.appTheme,
-          getPages: getPages,
-          initialBinding: InitialAppBindings(),
+        return Directionality(
+          textDirection: localizationController.language == const Locale('ar')
+              ? TextDirection.rtl
+              : TextDirection.ltr,
+          child: GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Flutter Demo',
+            translations: AppTranslation(),
+            locale: localizationController.language,
+            theme: localizationController.appTheme,
+            getPages: getPages,
+            initialBinding: InitialAppBindings(),
+          ),
         );
       },
     );

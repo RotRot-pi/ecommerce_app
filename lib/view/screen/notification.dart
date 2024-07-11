@@ -15,8 +15,8 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Notifications',
-          style: TextStyle(
+          'notifications'.tr,
+          style: const TextStyle(
             color: AppColors.secondaryColor,
           ),
         ),
@@ -30,28 +30,27 @@ class NotificationScreen extends StatelessWidget {
                 itemBuilder: (context, i) {
                   final Notifications notification = controller.data[i];
                   return ListTile(
-                    title: Text(
-                      notification.notificationTitle,
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: AppColors.black,
+                      title: Text(
+                        notification.notificationTitle,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: AppColors.black,
+                        ),
                       ),
-                    ),
-                    subtitle: Text(
-                      notification.notificationBody,
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.greyColor,
+                      subtitle: Text(
+                        notification.notificationBody,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: AppColors.greyColor,
+                        ),
                       ),
-                    ),
-                    trailing: Text(
-                      '${Jiffy.parse(notification.notificationTime, pattern: 'yyyy-MM-dd HH:mm:ss').fromNow()} ago',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                  );
+                      trailing: Text(
+                        '${Jiffy.parse(notification.notificationTime, pattern: 'yyyy-MM-dd HH:mm:ss').fromNow()} ${'ago'.tr}',
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: AppColors.primaryColor,
+                        ),
+                      ));
                 },
               ));
         },

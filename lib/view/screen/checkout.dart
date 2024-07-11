@@ -17,7 +17,7 @@ class CheckoutScreen extends StatelessWidget {
     CheckoutController controller = Get.put(CheckoutController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Checkout'),
+        title: Text('checkout'.tr),
       ),
       bottomNavigationBar: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -25,8 +25,9 @@ class CheckoutScreen extends StatelessWidget {
             color: AppColors.secondaryColor,
             textColor: Colors.white,
             onPressed: () => controller.checkout(),
-            child: const Text("Checkout",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            child: Text('checkout'.tr,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
           )),
       body: GetBuilder<CheckoutController>(
           builder: (controller) => HandelingDataView(
@@ -35,9 +36,9 @@ class CheckoutScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(20),
                   child: ListView(
                     children: [
-                      const Text(
-                        "Choose Payment Method",
-                        style: TextStyle(
+                      Text(
+                        "choose_payment_method".tr,
+                        style: const TextStyle(
                             color: AppColors.secondaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
@@ -49,7 +50,7 @@ class CheckoutScreen extends StatelessWidget {
                           controller.choosePaymentMethod(0);
                         },
                         child: CardPaymentMethodCheckout(
-                            title: "Cash On Delivery",
+                            title: "cash_on_delivery".tr,
                             isActive:
                                 controller.paymentMethod == 0 ? true : false),
                       ),
@@ -60,14 +61,14 @@ class CheckoutScreen extends StatelessWidget {
                           controller.choosePaymentMethod(1);
                         },
                         child: CardPaymentMethodCheckout(
-                            title: "Payment Cards",
+                            title: "payment_cards".tr,
                             isActive:
                                 controller.paymentMethod == 1 ? true : false),
                       ),
                       const SizedBox(height: 20),
-                      const Text(
-                        "Choose Delivery Type",
-                        style: TextStyle(
+                      Text(
+                        "choose_delivery_type".tr,
+                        style: const TextStyle(
                             color: AppColors.secondaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
@@ -82,7 +83,7 @@ class CheckoutScreen extends StatelessWidget {
                             },
                             child: CardDeliveryTypeCheckout(
                                 imagename: AppImageAssets.deliveryImage,
-                                title: "Delivery",
+                                title: "delivery".tr,
                                 active: controller.deliveryType == 0
                                     ? true
                                     : false),
@@ -95,7 +96,7 @@ class CheckoutScreen extends StatelessWidget {
                             },
                             child: CardDeliveryTypeCheckout(
                                 imagename: AppImageAssets.drivethruImage,
-                                title: "Revice",
+                                title: "receive".tr,
                                 active: controller.deliveryType == 1
                                     ? true
                                     : false),
@@ -107,8 +108,8 @@ class CheckoutScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Shipping Address",
+                            Text(
+                              "shipping_address".tr,
                               style: TextStyle(
                                   color: AppColors.secondaryColor,
                                   fontWeight: FontWeight.bold,
@@ -121,9 +122,9 @@ class CheckoutScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Text(
-                                      "No Shipping Address",
-                                      style: TextStyle(
+                                    Text(
+                                      "no_shipping_address".tr,
+                                      style: const TextStyle(
                                           color: AppColors.greyTextColor,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16),
@@ -133,7 +134,7 @@ class CheckoutScreen extends StatelessWidget {
                                       onPressed: () {
                                         controller.goToAddress();
                                       },
-                                      child: const Text("Add Shipping Address"),
+                                      child: Text("add_shipping_address".tr),
                                     ),
                                   ],
                                 ),

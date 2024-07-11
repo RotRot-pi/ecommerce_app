@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/colors.dart';
@@ -8,11 +7,10 @@ class CardShppingAddressCheckout extends StatelessWidget {
   final String body;
   final bool isactive;
   const CardShppingAddressCheckout(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.body,
-      required this.isactive})
-      : super(key: key);
+      required this.isactive});
 
   @override
   Widget build(BuildContext context) {

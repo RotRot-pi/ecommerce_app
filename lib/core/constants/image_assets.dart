@@ -11,6 +11,8 @@ class AppImageAssets {
   static const String onboardingThree = '$imageRouteAssets/three.png';
   static const String logo = '$imageRouteAssets/logo.png';
 
+  static const String avatar = "$imageRouteAssets/avatar.png";
+
   static const String loading = "$rootLottie/loading.json";
   static const String offline = "$rootLottie/offline.json";
   static const String noData = "$rootLottie/no_data.json";
@@ -18,4 +20,5 @@ class AppImageAssets {
 
   static const String deliveryImage = "$imageRouteAssets/delivery.png";
   static const String drivethruImage = "$imageRouteAssets/drivethru.png";
+  static const String sales = "$imageRouteAssets/sales.png";
 }

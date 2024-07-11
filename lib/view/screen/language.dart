@@ -22,7 +22,7 @@ class LanguageScreen extends GetView<LocalizationController> {
             ),
             AppSpacing.addHeigh(h32),
             LanguageButton(
-              language: 'English',
+              language: 'english'.tr,
               onPressed: () async {
                 controller.changeLanguage('en');
                 await Future.delayed(const Duration(milliseconds: 400), () {});
@@ -31,9 +31,18 @@ class LanguageScreen extends GetView<LocalizationController> {
             ),
             AppSpacing.addHeigh(h16),
             LanguageButton(
-              language: 'Arabic',
+              language: 'arabic'.tr,
               onPressed: () async {
                 controller.changeLanguage('ar');
+                await Future.delayed(const Duration(milliseconds: 400), () {});
+                Get.toNamed(AppRoutes.onboarding);
+              },
+            ),
+            AppSpacing.addHeigh(h16),
+            LanguageButton(
+              language: 'french'.tr,
+              onPressed: () async {
+                controller.changeLanguage('fr');
                 await Future.delayed(const Duration(milliseconds: 400), () {});
                 Get.toNamed(AppRoutes.onboarding);
               },

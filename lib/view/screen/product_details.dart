@@ -15,7 +15,7 @@ class ProductDetailsScreen extends StatelessWidget {
         Get.put(ProductDetailsControllerImpl());
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Product Details"),
+          title: Text("product_details".tr),
           centerTitle: true,
           backgroundColor: AppColors.whiteTextColor,
           leading: IconButton(
@@ -34,9 +34,9 @@ class ProductDetailsScreen extends StatelessWidget {
                   controller.addItems(controller.item.itemsId);
                   //Get.toNamed(AppRoutes.cart);
                 },
-                child: const Text(
-                  "Go To Cart",
-                  style: TextStyle(
+                child: Text(
+                  "go_to_cart".tr,
+                  style: const TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ))),
         body: GetBuilder<ProductDetailsControllerImpl>(
@@ -67,8 +67,10 @@ class ProductDetailsScreen extends StatelessWidget {
                               onRemove: () {
                                 controller.remove();
                               },
-                              price:
-                                  "${controller.item.itemsPriceAfterDiscount}",
+                              price: controller.item.itemsPriceAfterDiscount ==
+                                      null
+                                  ? "${controller.item.itemsPrice}"
+                                  : "${controller.item.itemsPriceAfterDiscount}",
                               count: "${controller.countitems}"),
                           const SizedBox(height: 10),
                           Text(controller.item.itemsDescription,

@@ -13,17 +13,18 @@ class TopAppbarCart extends StatelessWidget {
             Expanded(
                 child: Container(
               alignment: Alignment.centerLeft,
-              child: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              child: IconButton(
+                  onPressed: () {}, icon: const Icon(Icons.arrow_back)),
             )),
             Expanded(
                 child: Container(
               alignment: Alignment.center,
               child: Text(
                 title,
-                style: TextStyle(fontSize: 25),
+                style: const TextStyle(fontSize: 25),
               ),
             )),
-            Spacer()
+            const Spacer()
           ],
         ));
   }

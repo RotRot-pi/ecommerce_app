@@ -17,7 +17,6 @@ class PriceAndCountItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("PriceAndCountItems:$count");
     return Row(
       children: [
         Row(

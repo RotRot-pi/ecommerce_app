@@ -1,6 +1,5 @@
 import 'package:ecommercecourse/controller/order/details.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
-import 'package:ecommercecourse/core/constants/routes_name.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/cart.dart';
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
@@ -18,9 +17,9 @@ class OrdersDetailsScreen extends StatelessWidget {
     Get.put(OrdersDetailsController());
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "Order Details",
-            style: TextStyle(color: AppColors.primaryColor),
+          title: Text(
+            "order_details".tr,
+            style: const TextStyle(color: AppColors.primaryColor),
           ),
         ),
         body: Container(
@@ -36,20 +35,20 @@ class OrdersDetailsScreen extends StatelessWidget {
                     child: Container(
                       padding: AppSpacing.addEdgeInsetsAll(p12),
                       child: Table(children: [
-                        const TableRow(children: [
-                          Text("Item",
+                        TableRow(children: [
+                          Text("item".tr,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primaryColor)),
-                          Text("QTY",
+                          Text("qty".tr,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primaryColor)),
-                          Text("Price",
+                          Text("price".tr,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primaryColor))
                         ]),
@@ -81,7 +80,7 @@ class OrdersDetailsScreen extends StatelessWidget {
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
-                          "Total: ${controller.orderDetails.orderPrice}\$",
+                          "${"total".tr}: ${controller.orderDetails.orderPrice}\$",
                           textAlign: TextAlign.center,
                           style: const TextStyle(color: AppColors.primaryColor),
                         ),
@@ -93,9 +92,9 @@ class OrdersDetailsScreen extends StatelessWidget {
                     Card(
                       color: AppColors.whiteTextColor,
                       child: ListTile(
-                          title: const Text(
-                            "Shipping Address",
-                            style: TextStyle(
+                          title: Text(
+                            "shipping_address".tr,
+                            style: const TextStyle(
                                 color: AppColors.primaryColor,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -169,7 +168,7 @@ class OrdersDetailsScreen extends StatelessWidget {
                                             controller.goToOrderTracking(
                                                 controller.orderDetails);
                                           },
-                                          child: const Text("Track Order"))
+                                          child: Text("track_order".tr))
                                     ]))
                           ],
                         ),

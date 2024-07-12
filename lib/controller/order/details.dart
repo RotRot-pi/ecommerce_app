@@ -36,10 +36,10 @@ class OrdersDetailsController extends GetxController {
     print("status2:$requestStatus");
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      print("response:$response ");
+      print("response Details: $response ");
 
       for (var item in response['data']) {
-        data.add(CartModel.fromMap(item));
+        data.add(OrderDetails.fromJson(item));
         print("Cart Status 3:${requestStatus}");
       }
       update();
@@ -49,18 +49,17 @@ class OrdersDetailsController extends GetxController {
     update();
   }
 
-  setMarker(LatLng latLng) {
+  setMarker([LatLng? latLng]) {
     if (orderDetails.orderType == 0) {
       markers.clear();
+      lat = orderDetails.addressLat!;
+      lng = orderDetails.addressLong!;
       markers.add(
         Marker(
-          point: latLng,
+          point: LatLng(lng, lat),
           child: const Icon(Icons.location_on),
         ),
       );
-
-      lat = orderDetails.addressLat ?? latLng.latitude;
-      lng = orderDetails.addressLong ?? latLng.longitude;
     }
     update();
   }

@@ -2,6 +2,7 @@ import 'package:ecommercecourse/controller/order/details.dart';
 import 'package:ecommercecourse/core/constants/colors.dart';
 import 'package:ecommercecourse/core/constants/spaces.dart';
 import 'package:ecommercecourse/data/model/cart.dart';
+import 'package:ecommercecourse/data/model/order_details.dart';
 import 'package:ecommercecourse/view/widgets/handeling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -53,18 +54,18 @@ class OrdersDetailsScreen extends StatelessWidget {
                                   color: AppColors.primaryColor))
                         ]),
                         ...List.generate(controller.data.length, (index) {
-                          CartModel cart = controller.data[index];
+                          OrderDetails order = controller.data[index];
                           return TableRow(children: [
                             Text(
-                              "${cart.itemsName}",
+                              "${order.itemsName}",
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              "${cart.cartItemCount}",
+                              "${order.cartItemCount}",
                               textAlign: TextAlign.center,
                             ),
                             Text(
-                              "${cart.itemsPrice}",
+                              "${order.itemsPriceAtPurchase}",
                               textAlign: TextAlign.center,
                             ),
                           ]);
@@ -114,10 +115,7 @@ class OrdersDetailsScreen extends StatelessWidget {
                             FlutterMap(
                               mapController: controller.mapController,
                               options: MapOptions(
-                                onMapReady: () => controller.setMarker(LatLng(
-                                    controller.orderDetails.addressLat ?? 0.0,
-                                    controller.orderDetails.addressLong ??
-                                        0.0)),
+                                onMapReady: () => controller.setMarker(),
                                 initialCenter: LatLng(
                                   controller.orderDetails.addressLat ?? 0.0,
                                   controller.orderDetails.addressLong ?? 0.0,

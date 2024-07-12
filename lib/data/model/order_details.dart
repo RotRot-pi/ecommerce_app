@@ -3,7 +3,7 @@ class OrderDetails {
   int? itemsId;
   String? itemsName;
   String? itemsNameAr;
-  int? itemsPrice;
+  double? itemsPrice;
   int? itemsDiscount;
   int? itemsActive;
   int? itemsCount;
@@ -13,7 +13,7 @@ class OrderDetails {
   String? itemsDatetime;
   int? itemsCategory;
   double? itemsDiscountPrice;
-
+  double? itemsPriceAtPurchase;
   // Cart
   int? cartId;
   int? cartUserId;
@@ -61,6 +61,7 @@ class OrderDetails {
     this.itemsDatetime,
     this.itemsCategory,
     this.itemsDiscountPrice,
+    this.itemsPriceAtPurchase,
     this.cartId,
     this.cartUserId,
     this.cartItemId,
@@ -95,7 +96,7 @@ class OrderDetails {
       itemsId: map['items_id'] as int?,
       itemsName: map['items_name'] as String?,
       itemsNameAr: map['items_name_ar'] as String?,
-      itemsPrice: map['items_price'] as int?,
+      itemsPrice: map['items_price']?.toDouble(),
       itemsDiscount: map['items_discount'] as int?,
       itemsActive: map['items_active'] as int?,
       itemsCount: map['items_count'] as int?,
@@ -104,7 +105,8 @@ class OrderDetails {
       itemsDescriptionAr: map['items_description_ar'] as String?,
       itemsDatetime: map['items_datetime'] as String?,
       itemsCategory: map['items_category'] as int?,
-      itemsDiscountPrice: map['items_discount_price'] as double?,
+      itemsDiscountPrice: map['items_discount_price']?.toDouble(),
+      itemsPriceAtPurchase: map['items_price_at_purchase']?.toDouble(),
       cartId: map['cart_id'] as int?,
       cartUserId: map['cart_user_id'] as int?,
       cartItemId: map['cart_item_id'] as int?,
@@ -115,11 +117,11 @@ class OrderDetails {
       orderAddressId: map['order_address_id'] as int?,
       orderUserId: map['order_user_id'] as int?,
       orderType: map['order_type'] as int?,
-      orderDeliveryPrice: map['order_delivery_price'].toDouble() as double?,
+      orderDeliveryPrice: map['order_delivery_price']?.toDouble() as double?,
       orderCouponId: map['order_coupon_id'] as int?,
       orderDateTime: map['order_date_time'] as String?,
-      orderPrice: map['order_price'].toDouble() as double?,
-      orderTotalPrice: map['order_totalprice'].toDouble() as double?,
+      orderPrice: map['order_price']?.toDouble() as double?,
+      orderTotalPrice: map['order_totalprice']?.toDouble() as double?,
       orderPaymentType: map['order_payment_type'] as int?,
       orderStatus: map['order_status'] as int?,
       orderRating: map['order_rating'] as int?,

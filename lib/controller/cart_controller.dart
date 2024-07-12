@@ -23,7 +23,7 @@ class CartController extends GetxController {
   double ordersPrice = 0.0;
   var totalOrdersPrice;
   //var totalPrice;
-  double totalcountitems = 0.0;
+  int totalcountitems = 0;
 
   var discountCoupon = 0;
   var couponName;
@@ -78,7 +78,7 @@ class CartController extends GetxController {
   }
 
   resetVarCart() {
-    totalcountitems = 0.0;
+    totalcountitems = 0;
     ordersPrice = 0.0;
     data.clear();
   }
@@ -106,6 +106,7 @@ class CartController extends GetxController {
         try {
           for (var item in datacart) {
             data.add(CartModel.fromMap(item));
+            totalcountitems += item['cart_item_count'] as int;
             print("Cart Status 3:${requestStatus}");
           }
           ordersPrice = response['countprice']['cart_total_price'];

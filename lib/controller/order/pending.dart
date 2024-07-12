@@ -22,10 +22,9 @@ class PendingOrderController extends GetxController {
     print("status2:$requestStatus");
     if (requestStatus == RequestStatus.success &&
         response['status'] == 'success') {
-      print("response:$response ");
-
-      for (var i = 0; i < response['data'].length; i++) {
-        data.add(OrderDetails.fromJson(response['data'][i]));
+      for (var item in response['data']) {
+        data.add(OrderDetails.fromJson(item));
+        print("Order Status 3:${requestStatus}");
       }
     } else {
       requestStatus;

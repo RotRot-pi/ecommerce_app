@@ -39,8 +39,8 @@ class OrderTrackingScreen extends StatelessWidget {
                             mapController: controller.mapController,
                             options: MapOptions(
                               onMapReady: () => controller.setMarker(LatLng(
-                                  controller.orderDetails.addressLat!,
-                                  controller.orderDetails.addressLong!)),
+                                  controller.orderDetails.addressLong!,
+                                  controller.orderDetails.addressLat!)),
                               initialCenter: LatLng(
                                 controller.orderDetails.addressLat ?? 0.0,
                                 controller.orderDetails.addressLong ?? 0.0,

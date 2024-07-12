@@ -89,7 +89,7 @@ class OrderCard extends StatelessWidget {
                       MaterialButton(
                         onPressed: () {
                           Get.toNamed(AppRoutes.ordersDetails,
-                              arguments: {'orderId': order.orderId});
+                              arguments: {'order': order});
                         },
                         color: AppColors.whiteTextColor.withAlpha(150),
                         textColor: AppColors.black,

@@ -150,7 +150,7 @@ class CheckoutScreen extends StatelessWidget {
                                     title:
                                         "${controller.dataaddress[index].addressName}",
                                     body:
-                                        "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
+                                        "${controller.dataaddress[index].addressCity} ,${controller.dataaddress[index].addressStreet}",
                                     isactive: controller.addressid ==
                                             controller
                                                 .dataaddress[index].addressId

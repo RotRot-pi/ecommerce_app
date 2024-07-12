@@ -18,25 +18,23 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("my_cart".tr),
+          centerTitle: true,
         ),
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         bottomNavigationBar: GetBuilder<CartController>(
             builder: (controller) => BottomNavgationBarCart(
                   controllercoupon: controller.couponController,
                   onApplyCoupon: () => controller.checkCoupon(),
                   onPressedOrder: () => controller.goToCheckout(),
-                  price: controller.ordersPrice?.toStringAsFixed(2),
+                  price: controller.ordersPrice.toStringAsFixed(2),
                   discount: "${controller.discountCoupon}",
-                  totalprice: "${controller.ordersPrice}",
+                  totalprice: controller.ordersPrice.toStringAsFixed(2),
                 )),
         body: GetBuilder<CartController>(
             builder: (controller) => HandelingDataView(
                 requestStatus: controller.requestStatus,
                 child: ListView(
                   children: [
-                    // TopAppbarCart(
-                    //   title: 'My Cart',
-                    // ),
                     SizedBox(height: 10),
                     TopCardCart(
                         message:

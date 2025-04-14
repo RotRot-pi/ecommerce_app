@@ -225,7 +225,7 @@ For detailed API documentation, please refer to the [ZingoShop Backend repositor
 
 ## Future Improvements
 
-* **Payment Integration:** Integrate with a reliable payment gateway to facilitate secure online transactions, expanding payment options for customers. 
+* ~~**Payment Integration:** Integrate with a reliable payment gateway to facilitate secure online transactions, expanding payment options for customers.~~ ✅
 * **User Reviews:**  Enable customers to leave reviews for products, fostering community engagement and providing valuable feedback for other shoppers.
 * **Advanced Search/Filtering:** Implement more sophisticated search and product filtering options to enhance product discovery and help customers find exactly what they need.
 * **Enhanced Security:** Conduct a thorough security audit and implement robust measures to protect against common vulnerabilities, such as SQL injection and cross-site scripting (XSS), ensuring data integrity and user privacy. 
